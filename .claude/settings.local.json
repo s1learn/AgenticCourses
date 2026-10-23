@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(npm install *)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(gh auth *)",
+      "Bash(git ls-remote *)",
+      "Bash(git clone *)",
+      "Read(//tmp/**)"
     ]
   }
 }
