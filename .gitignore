@@ -3,3 +3,6 @@
 node_modules/
 .DS_Store
 Thumbs.db
+
+# parallel-development: local clone + worktrees are separate repos
+parallel-development/expense-tracker*/
