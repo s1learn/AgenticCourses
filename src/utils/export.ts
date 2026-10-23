@@ -2,12 +2,12 @@ import { Expense } from '@/types';
 import { formatDate } from './date';
 
 export function exportToCSV(expenses: Expense[]): void {
-  const headers = ['Date', 'Description', 'Category', 'Amount'];
+  const headers = ['Date', 'Category', 'Amount', 'Description'];
   const rows = expenses.map((e) => [
     formatDate(e.date),
-    `"${e.description.replace(/"/g, '""')}"`,
     e.category,
     e.amount.toFixed(2),
+    `"${e.description.replace(/"/g, '""')}"`,
   ]);
 
   const csv = [headers.join(','), ...rows.map((r) => r.join(','))].join('\n');
