@@ -7,9 +7,9 @@ import { CategoryChart } from './CategoryChart';
 import { MonthlyChart } from './MonthlyChart';
 import { ExpenseItem } from './ExpenseItem';
 import { DeleteModal } from './DeleteModal';
+import { ExportHub } from './ExportHub';
 import { formatCurrency } from '@/utils/currency';
 import { CATEGORY_CONFIG } from '@/utils/categories';
-import { exportToCSV } from '@/utils/export';
 
 interface DashboardProps {
   expenses: Expense[];
@@ -21,6 +21,7 @@ interface DashboardProps {
 
 export function Dashboard({ expenses, stats, onEdit, onDelete, onAddExpense }: DashboardProps) {
   const [deleteTarget, setDeleteTarget] = useState<Expense | null>(null);
+  const [showHub, setShowHub] = useState(false);
   const recent = useMemo(() => expenses.slice(0, 6), [expenses]);
 
   const avgLabel =
@@ -94,13 +95,13 @@ export function Dashboard({ expenses, stats, onEdit, onDelete, onAddExpense }: D
           </div>
           {expenses.length > 0 && (
             <button
-              onClick={() => exportToCSV(expenses)}
-              className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
+              onClick={() => setShowHub(true)}
+              className="flex items-center gap-1.5 text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-700 px-3 py-1.5 rounded-lg transition-colors shadow-sm"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
               </svg>
-              Export CSV
+              Export &amp; Share ↗
             </button>
           )}
         </div>
@@ -138,6 +139,8 @@ export function Dashboard({ expenses, stats, onEdit, onDelete, onAddExpense }: D
           onCancel={() => setDeleteTarget(null)}
         />
       )}
+
+      {showHub && <ExportHub expenses={expenses} onClose={() => setShowHub(false)} />}
     </div>
   );
 }
