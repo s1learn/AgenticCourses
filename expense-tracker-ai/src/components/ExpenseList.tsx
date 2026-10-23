@@ -49,7 +49,7 @@ export function ExpenseList({ expenses, getFilteredExpenses, onEdit, onDelete }:
           )}
         </p>
         <button
-          onClick={() => exportToCSV(filtered)}
+          onClick={() => exportToCSV(filtered, `expenses_${new Date().toISOString().split('T')[0]}`)}
           disabled={filtered.length === 0}
           className="flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-xl text-sm text-gray-600 hover:bg-gray-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
         >
