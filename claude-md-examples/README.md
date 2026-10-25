@@ -10,6 +10,8 @@ A collection of real-world CLAUDE.md examples across different project types.
 - [Example 4](example-4-enterprise-backend-service.md) — Enterprise Backend Service (Spring Boot)
 - [Example 5](example-5-devops-infrastructure.md) — DevOps Infrastructure Project (Terraform)
 - [Example 6](example-6-open-source-library.md) — Open Source Library Development (Python)
+- [Example 7](example-7-think-and-plan-first.md) — Having Claude Code Think & Plan First
+- [Example 8](example-8-claude-checks-its-own-work.md) — Ensure Claude Code Checks Its Own Work
 
 ---
 
