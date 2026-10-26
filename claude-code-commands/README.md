@@ -69,6 +69,9 @@ Commands are stored as markdown files in the `.claude/commands/` directory:
 |------|-------------|
 | [code-review.md](code-review.md) | Comprehensive code review against project standards |
 | [api-test.md](api-test.md) | API endpoint test generation |
+| [scaffold-feature.md](scaffold-feature.md) | Expense tracker: plan-first feature build following CLAUDE.md recipes, with docs and verification |
+| [fix-known-issue.md](fix-known-issue.md) | Expense tracker: reproduce, root-cause and close a bug listed in CLAUDE.md §8 |
+| [migrate-storage.md](migrate-storage.md) | Expense tracker: safely change the shape of localStorage data without losing users' records |
 
 > **Note**: These examples are not meant to be used "as-is". Adapt them for your project. The best commands will be customized to your specific workflows, conventions, and tooling.
 
